@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
-if [ -d "docs" ]; then
-  echo "docs folder found"
+if [ -d $1/docs ]; then
+  echo "Move"
   exit 0
+else
+  echo "no"
 fi
-
-echo "docs folder not found :("
-exit 1
