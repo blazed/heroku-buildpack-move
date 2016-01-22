@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir> <env-dir>
+shopt -s extglob
+
 cd $1
 
 HOME_BACK=$HOME
@@ -8,5 +10,6 @@ export HOME=$1
 
 export HOME=$HOME_BACK
 
-find . ! -name 'docs' -type d -exec rm -fr {} +
+#find . ! -name 'docs/*' -type d -exec rm -fr {} +
+rm !(docs/) -rf
 mv docs/* .
