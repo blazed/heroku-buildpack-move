@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# bin/detect <build-dir>
+
+if [ -d docs/ ]; then
+  echo "docs folder found"
+  exit 0
+fi
+
+exit 1

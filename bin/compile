@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+shopt -s extglob
+
+cd $1
+
+HOME_BACK=$HOME
+export HOME=$1
+
+for profile in ./.profile.d/*; do
+  . ${profile}
+done
+
+if [ -d "$3" ]; then
+  for e $(ls $3); do
+    export "$e=$(cat $3/$e)"
+    :
+  done
+fi
+
+export HOME=$HOME_BACK
+
+rm !(docs/)
+mv docs/* .
