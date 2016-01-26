@@ -11,5 +11,5 @@ export HOME=$1
 export HOME=$HOME_BACK
 
 #find . ! -name 'docs/*' -type d -exec rm -fr {} +
-rm !(docs/) -rf
+rm !(docs) -rf
 mv docs/* .
